@@ -2,16 +2,20 @@
 $page  = "sakums";
 require "header.php";
 
-session_start();
-
 if(isset($_SESSION['username'])){
 ?>
-<section id="adminSakums">
-    <div class="kopsavilkums">
-        <div class="informacija">
-            
-</div>   
-</section>
+<div class="rinda">
+  <a href="kokmateriali.php">
+    <img src="../Atteli/sakums2.jpg" alt="Image 1">
+  </a>
+  <a href="zagmateriali.php">
+    <img src="../Atteli/sakums3.jpg" alt="Image 2">
+  </a>
+  <a href="kurinamais.php">
+    <img src="../Atteli/sakums1.jpg" alt="Image 3">
+  </a>
+</div>
+
 <?php 
 }else{
     

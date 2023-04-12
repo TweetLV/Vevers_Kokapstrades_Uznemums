@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300&display=swap');
 
 :root{
-    --main-color:rgb(211, 191, 79);
+    --main-color:#ca8225c2;
     --black:#555;
     --light-color:#777;
     --bg:rgb(46, 46, 45);
@@ -62,21 +62,20 @@ h1 span{
 }
 
 header{
-    position: fixed;
+    /*position: fixed;*/
     top:0; left:0; right: 0;
-    z-index: 1000;
+    z-index: 1000;  
     background: var(--bg);
     box-shadow: var(--box-shadow);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:2rem 9%;
+    padding:4rem 10%;
 }
 
-header .logo{
-    font-size: 2.5rem;
-    color:var(--main-color);
-    font-weight: bold;
+header .navbar a img{
+    height: auto;
+    width: 150px;
 }
 
 header .navbar a{
@@ -102,3 +101,16 @@ footer{
     bottom: 0;
     width: 100%;
 }
+
+.rinda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .rinda img {
+    width: 30%;
+    height: auto;
+    margin: 0 10px;
+  }

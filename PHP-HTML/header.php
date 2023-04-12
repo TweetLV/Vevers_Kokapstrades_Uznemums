@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel="stylesheet" href="../CSS/main.css">
-        <link rel="shortcut icon" href="atteli/logo.PNG" type="image/x-icon">
+        <link rel="shortcut icon" href="../Atteli/icon.png" type="image/x-icon">
         <title>Kokapstrādes uzņēmums</title>
     </head>
     <body>
         <header>
         <nav class="navbar">
-            <a href="#" class="logo">Kokapstrādes uzņēmums</a>
+            <a href="index.php" class="<?php echo ($page == "sakums" ? "active" : ""); ?>"><img src="../Atteli/logo.png" alt="Logo"></a>
             <a href="index.php" class="<?php echo ($page == "sakums" ? "active" : ""); ?>"><i class="fas fa-home"></i> Sākumlapa</a>
             <a href="parmums.php" class="<?php echo ($page == "parmums" ? "active" : ""); ?>" >Par mums</a>
             <a href="produkcija.php" class="<?php echo ($page == "produkcija" ? "active" : ""); ?>">Produkcija</a> 
@@ -23,9 +23,9 @@
      session_start();
         
         $Admins = $savienojums->query("SELECT * FROM lietotaji WHERE admins = true and lietotajvards = '".$_SESSION['username']."' ");
-        if($Admins)
+        if($Admins) 
             if($Admins->num_rows >0){
-                
+                 
                echo "<a href='admins.php' ><i class='fas fa-cog'></i> Admins</a>";
             }
 
