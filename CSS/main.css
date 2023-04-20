@@ -48,8 +48,9 @@ section{
 }
 
 h1{
+    margin-top: 2.5rem;
     text-align: center;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
     font-size: 4rem;
     color:var(--main-color);
 }
@@ -104,13 +105,12 @@ footer{
 
 .rinda {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
+    justify-content: space-between;
   }
   
-  .rinda img {
-    width: 30%;
-    height: auto;
-    margin: 0 10px;
+ .rinda img{
+    align-items: center;
+    height: 340px; 
+    margin: 0px 12px 12px 12px ;
+    flex-basis: calc(33.3% - 24px); /* adjust width to fit 3 images in a row */
   }

@@ -42,5 +42,5 @@
         ?>
         </b> <i class="fas fa-power-off"></i></a>
     </nav>
-    <div id="menu-btn" class="fas fa-bars"></div>
+   
              </header>
