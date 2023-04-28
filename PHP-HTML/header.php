@@ -10,6 +10,7 @@
         <title>Kokapstrādes uzņēmums</title>
     </head>
     <body>
+        <section>
         <header>
         <nav class="navbar">
             <a href="index.php" class="<?php echo ($page == "sakums" ? "active" : ""); ?>"><img src="../Atteli/logo.png" alt="Logo"></a>
@@ -44,3 +45,4 @@
     </nav>
    
              </header>
+        </section>

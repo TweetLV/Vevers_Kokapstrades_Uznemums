@@ -4,6 +4,7 @@ require "header.php";
 
 if(isset($_SESSION['username'])){
 ?>
+<section>
 <div class="nosaukums">
   <h1>SIA "Uzņemuma nosaukums"<h1>
 </div>
@@ -12,6 +13,7 @@ if(isset($_SESSION['username'])){
  <a href="zagmateriali.php"> <img class="bilde" src="../Atteli/sakums3.jpg"></a>
  <a href="kurinamais.php"> <img class="bilde" src="../Atteli/sakums1.jpg"></a>
 </div>
+</section>
 <?php 
 }else{
     header("Refresh:0; url=login.php");
