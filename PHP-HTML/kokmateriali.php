@@ -21,7 +21,7 @@ if(isset($_SESSION['username'])){
 
 <?php
 function display_item_list($items, $image_path) {
-    echo "<ul class='item-list'>";
+    echo "<ul class='item-list'>"; 
     $i = 0;
     foreach ($items as $item) {
         if ($i % 4 == 0) {
@@ -52,10 +52,10 @@ $items = array(
     array("image" => "sakums1.jpg", "title" => "Item 11"),
     array("image" => "sakums1.jpg", "title" => "Item 12")
 );
-
+ 
 $image_path = "../Atteli/";
 display_item_list($items, $image_path);
-?>
+?> 
 
     <?php 
     }else{
@@ -64,4 +64,4 @@ display_item_list($items, $image_path);
     }
     
     include "footer.php";
-    ?>
+    ?>     
