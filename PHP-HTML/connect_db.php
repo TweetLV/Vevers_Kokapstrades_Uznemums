@@ -2,7 +2,7 @@
     $servera_vards = "localhost";
     $lietotajvards = "root";
     $parole = "";
-    $db_vards = "kokapstrades_uznemums";
+    $db_vards = "kokapstrade";
 
     $savienojums = mysqli_connect($servera_vards, $lietotajvards, $parole, $db_vards);
 

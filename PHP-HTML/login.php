@@ -22,18 +22,18 @@
 
 						$sqlVaicajums = "SELECT * FROM lietotaji WHERE lietotajvards='$Lietotajvards'";
 						$rezultats = mysqli_query($savienojums, $sqlVaicajums);
-                        
 
 						if(mysqli_num_rows($rezultats)>0){
 							while($row = mysqli_fetch_array($rezultats)){
-								if($_POST['parole']==$row['parole']){
+								$hashedPassword = $row['parole'];
+
+								if(password_verify($Parole, $hashedPassword)){
 									$_SESSION["username"] = $Lietotajvards;
 									header("location:index.php");
 								}else{
-									echo "Nepareizs lietotājvārds vai parole1!";
+									echo "Nepareizs lietotājvārds vai parole!";
 								}
 							}
-
 						}else{
 							echo "Nepareizs lietotājvārds vai parole!";
 						}
@@ -45,10 +45,13 @@
 				?>
 				<input type="text" name="lietotajs" placeholder="Lietotājvārds" />
 				<input type="password" name="parole" placeholder="Parole" />
-				<input type= "submit" name="autorizeties" value="Ielogoties"/>
+				<input type="submit" name="autorizeties" value="Ielogoties"/>
+				
+				<a href="registreties.php">Reģistrēties</a>
+				
+				<a href="index.php">Pievienoties kā viesis</a>
 			</form>
 		</div>
-		
 	</div>
 </body>
 </html>

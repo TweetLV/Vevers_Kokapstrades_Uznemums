@@ -43,7 +43,9 @@ html::-webkit-scrollbar-track{
 html::-webkit-scrollbar-thumb{
     background: var(--main-color);
 }
-
+body {
+    background-color: rgb(46, 46, 45);
+}
 h1{
     margin-top: 2.5rem;
     margin-right: 5.5rem;
