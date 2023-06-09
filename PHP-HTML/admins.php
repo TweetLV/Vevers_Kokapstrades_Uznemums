@@ -58,7 +58,7 @@ $Admins = $savienojums->query("SELECT * FROM lietotaji WHERE admins = true and l
                     <ul class="u-nav u-spacing-30 u-unstyled u-nav-1">
                         <li class="u-nav-item"><a
                                 class="u-border-2 u-border-active-palette-1-base u-border-grey-90 u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-4 u-text-custom-color-3 u-text-hover-custom-color-4"
-                                href="index.php" style="padding: 20px 8px;">Sākums</a>
+                                href="#lietotaji" style="padding: 20px 8px;">Lietotaji</a>
                         </li>
                         <li class="u-nav-item"><a
                                 class="u-border-2 u-border-active-palette-1-base u-border-grey-90 u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-4 u-text-custom-color-3 u-text-hover-custom-color-4"
@@ -109,4 +109,13 @@ $Admins = $savienojums->query("SELECT * FROM lietotaji WHERE admins = true and l
         </div>
     </header>
 
+<body>
+    
+</body>
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-334b"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">SIA "Uzņēmuma nosaukums" @ 2023</p>
+      </div></footer>
+
+<script src="../Javascript/script.js"></script>
+</body>
 </html>
