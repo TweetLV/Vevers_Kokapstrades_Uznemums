@@ -48,8 +48,6 @@
 				<input type="submit" name="autorizeties" value="Ielogoties"/>
 				
 				<a href="registreties.php">Reģistrēties</a>
-				
-				<a href="index.php">Pievienoties kā viesis</a>
 			</form>
 		</div>
 	</div>

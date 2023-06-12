@@ -75,7 +75,7 @@
                 ?>
 
                 <div>
-                    <label>Lietotājs:</label>
+                    <label>Lietotājvārds:</label>
                     <input type="text" name="lietotajvards" value="<?php echo $name; ?>">
                     <span>
                         <?php echo $name_err; ?>

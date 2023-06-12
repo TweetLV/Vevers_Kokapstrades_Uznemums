@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300&display=swap');
+
+:root{
+    --main-color:#454349;
+    --black:#555;
+    --light-color:rgb(70, 70, 70);
+    --bg:#ff9100;
+    --border:.1rem solid rgba(211, 248, 107, 0.1);
+    --box-shadow:0 .5rem 1.5rem rgba(112, 177, 250, 0.1);
+}
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    outline: none;
+    border:none;
+    text-decoration: none;
+    transition: all .3s ease-out;
+}
+
+*::selection{
+    background:var(--main-color);
+    color: var(--bg);
+}
+
+html{
+    font-size: 62%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 9rem;
+}
+
+
+html::-webkit-scrollbar{
+    width:1.3rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: var(--light-color);
+}
+
+html::-webkit-scrollbar-thumb{
+    background: var(--main-color);
+}
+
+section{
+    padding:2rem 9%;
+}
+
+h1{
+    text-align: center;
+    padding-bottom: 3rem;
+    font-size: 4rem;
+    color:var(--black);
+}
+
+h1 span{
+    color:var(--main-color);
+    border-radius: .5rem;
+    background: var(--bg);
+    padding:0 1.5rem;
+}
+
+.btn{
+    margin: 1rem;
+    display: inline-block;
+    padding:.8rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color:#fff;
+    background:var(--main-color);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.btn:hover{
+    background:var(--black);
+}
+
+header{
+    position: fixed;
+    top:0; left:0; right: 0;
+    z-index: 1000;
+    background: rgb(54, 54, 54);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:2rem 9%;
+}
+img{
+    height: 5vw;
+    width: 15vw;
+}
+header .logo{
+    height: 1vw;
+    width: 1vw;
+    color:var(--black);
+    font-weight: bold;
+}
+
+header .navbar a{
+    font-size: 1.7rem;
+    color: var(--bg);
+    margin-left: 2rem;
+}
+
+.box-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    gap:1.5rem;
+}
+
+.box-container .box{
+    text-align: center;
+    border:var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    padding:4rem 2rem;
+}
+
+.box-container .box img{
+    height: 30rem;
+    width: 100%;
+}
+
+.box-container .box h3{
+    color:var(--black);
+    font-size: 2.5rem;
+    padding-top: 1.5rem;
+}
+
+.box-container .box p{
+    color:var(--light-color);
+    font-size: 1.5rem;
+    padding:1rem 0;
+    line-height: 1.8;
+}
+
+#informacija .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1.5rem;
+}
+
+#informacija .row .image{
+    flex:1 1 45rem;
+    padding: 2rem;
+}
+
+#informacija .row .image img{
+    width: 10%;
+}
+
+#informacija .row .content{
+    flex:1 1 45rem;
+}
+
+#informacija .row .content .title{
+    font-size:3rem;
+    color:var(--black);
+}
+
+#informacija .row .content p{
+    font-size:1.5rem;
+    color:var(--light-color);
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+#informacija .row .content .icons-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1rem;
+    padding-top: 2rem;
+}
+
+#informacija .row .content .icons-container .icons{
+    flex:1 1 15rem;
+    border-radius: .5rem;
+    border:var(--border);
+    padding:1.5rem;
+    text-align: center;
+}
+
+#informacija .row .content .icons-container .icons i{
+    border-radius: 50%;
+    background: var(--bg);
+    color:var(--main-color);
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+}
+
+#informacija .row .content .icons-container .icons h3{
+    color:var(--light-color);
+    font-size: 1.6rem;
+    padding-top: 1rem;
+}
+
+footer{
+    position: fixed;
+    bottom: 0; left:0; right: 0;
+    z-index: 1000;
+    background: #ff9100;
+    color: var(--black);
+    text-align: center;
+    padding: 4rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+label {
+    font-size: 1.4rem;
+    display: block;
+    margin-top: 0.8rem;
+  }
+
+.pazinojums{
+    font-size: 2rem;
+    text-align: center;
+    margin: 15rem 5rem;
+    padding: 3rem;
+    color: #eee;
+    border-radius: .5rem;
+    border: var(--border);
+}
+
+.sarkans{
+    background: #a14141;
+}
+
+.zals{
+    background: #57a141;
+}
+
+#adminSakums .kopsavilkums{
+    margin-top: 10rem;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap:1.5rem;
+}
+
+#adminSakums .kopsavilkums .informacija{
+    padding: 2.5rem;
+    text-align: center;
+    border: var(--border);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+}
+
+#adminSakums .kopsavilkums .informacija span{
+    display: inline-block;
+    width: 10rem;
+    height: 10rem;
+    line-height: 6rem;
+    padding: 2rem;
+    font-size: 3rem;
+    color:var(--main-color);
+    background: var(--bg);
+    border-radius: 50%;
+}
+
+#adminSakums .kopsavilkums .informacija h3{
+    color:var(--black);
+    padding: 1rem 0;
+    font-size: 2rem;
+}
+
+#adminSakums .kopsavilkums .informacija p{
+    color:var(--light-color);
+    line-height: 1.8;
+    font-size: 1.5rem;
+}
+
+#adminSakums .row{
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    
+}
+
+#adminSakums .row .info{
+    flex:1 1 45rem;
+    border:var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+}
+
+.head-info{
+    background-color: #f8f8f8;
+    color: var(--black);
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+.head-info2{
+    background-color: #f8f8f8;
+    color: var(--black);
+    margin-top: 15rem;
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+table{
+    font-size: 1.5rem;
+	width: 100%;
+}
+
+th, td{
+	text-align: center;
+	height: 50px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{
+	background-color: var(--bg);
+}
+
+th{
+	font-weight: bold;
+	color: var(--black);
+	text-align:center;
+}
+.box1{
+    margin:.7rem 0;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color:var(--black);
+    border-radius: .5rem;
+    border:var(--border);
+    background: #f7f7f7;
+    text-transform: none;
+    width: 49.8%;
+}
