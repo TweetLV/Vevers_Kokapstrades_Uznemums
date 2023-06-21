@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klienti</title>
+    <title>Sutijumu Info</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../CSS/style_main.css">
     <link rel="shortcut icon" href="atteli/mail.png" type="image/x-icon">
@@ -39,40 +39,38 @@
 </header>
 <?php
                     require("connect_db.php");
-                    if(isset($_POST['klientirediget'])){
-                        $id_klienti = $_POST['Klients_id'];
-                        $vards_ievade = $_POST["Vards"];
-                        $uzvards_ievade = $_POST["Uzvards"];
-                        $talrunis_ievade = $_POST["numurs"];
-                        $Adrese_ievade = $_POST["Adrese"];
+                    if(isset($_POST['inforediget'])){
+                        $Sutijumu_info_id = $_POST['Sutijumu_info_id'];
+                        $skaits_ievade = $_POST["Skaits"];
+                        $PrecesCena_ievade = $_POST["Preces_cena"];
+                        $ProduktaId_ievade = $_POST["id_produkti"];
 
-                            $parbaude = "SELECT * FROM klienti WHERE Klients_id='$id_klienti'";
+                            $parbaude = "SELECT * FROM Sutijumu_info WHERE Sutijumu_info_id='$Sutijumu_info_id'";
                             $parbaudes_rezultats = mysqli_query($savienojums, $parbaude) or die ("Nekorekts vaicājums!");
 
-                            if(!empty($vards_ievade) && !empty($uzvards_ievade) && !empty($talrunis_ievade) && !empty($Adrese_ievade)){
-                            $rediget_klienti_SQL = 
-                            "UPDATE klienti SET 
-                            `Klients_id` = '$id_klienti',
-                            `Vards` = '$vards_ievade', 
-                            `Uzvards` = '$uzvards_ievade', 
-                            `numurs` = '$talrunis_ievade', 
-                            `Adrese` = '$Adrese_ievade'
-                            WHERE `Klients_id` = '$id_klienti'";
+                            if(!empty($Sutijumu_info_id) && !empty($skaits_ievade) && !empty($PrecesCena_ievade) && !empty($ProduktaId_ievade)){
+                            $rediget_info_SQL = 
+                            "UPDATE Sutijumu_info SET 
+                            `Sutijumu_info_id` = '$Sutijumu_info_id',
+                            `Skaits` = '$skaits_ievade', 
+                            `Preces_cena` = '$PrecesCena_ievade', 
+                            `id_produkti` = '$ProduktaId_ievade'
+                            WHERE `Sutijumu_info_id` = '$Sutijumu_info_id'";
 
-                            if(mysqli_query($savienojums, $rediget_klienti_SQL)){
+                            if(mysqli_query($savienojums, $rediget_info_SQL)){
                             echo "<div class='pazinojums zals'>Pievienošana ir noritējusi veiksmīgi!</div>";
-                            header("Refresh:2; url=klienti.php");
+                            header("Refresh:2; url=info.php");
                         }else{
                             echo "<div class='pazinojums sarkans'>Pievienošana nav izdevusies! Kļūda sistēmā!</div>";
-                            header("Refresh:2; url=klienti.php");
+                            header("Refresh:2; url=info.php");
                         }
 
                     }else{
                         echo "<div class='pazinojums sarkans'>Reģistrācija nav izdevusies! Ievades lauku problēmas!</div>";
-                        header("Refresh:2; url=klienti.php");
+                        header("Refresh:2; url=info.php");
                     }
                 }else{
                     echo "<div class='pazinojums sarkans'>Kaut kas nogāja greizi! Atgriezies sākumlapā un mēģini vēlreiz!</div>";
-                    header("Refresh:2; url=klienti.php");
+                    header("Refresh:2; url=info.php");
                 }
                 ?>

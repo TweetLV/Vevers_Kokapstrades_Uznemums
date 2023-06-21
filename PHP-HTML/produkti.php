@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maksājumu tabula</title>
+    <title>Produktu tabula</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../CSS/style_main.css">
     <link rel="shortcut icon" href="atteli/mail.png" type="image/x-icon">
@@ -42,20 +42,21 @@
     <div class="row">
         <div class="info">
         <?php require("connect_db.php")?>
-            <div class="head-info">Maksājumu saraksts: <table><?php
-                echo "<tr><th>Maksajumu ID</th><th>Sutijuma datums</th><th>Gala cena</th><th>Sutijumu ID</th></tr>";
-            $maksajumiVaicajums = "SELECT * FROM maksajumi";
-            $atlasaMaksajumus = mysqli_query($savienojums, $maksajumiVaicajums) or die("Nekorekts vaicājums!");
+            <div class="head-info">Produktu saraksts: <form action="produktipievienot.php" method="post"><input type="submit" name="pievienot" value="Pievienot produktu" class="btn"></form></div><table><?php
+                echo "<tr><th>Produktu_id</th><th>Nosaukums</th><th>Apraksts</th><th>Preces cena</th><th>Skaits</th></tr>";
+            $produktiVaicajums = "SELECT * FROM produkti";
+            $atlasaProduktus = mysqli_query($savienojums, $produktiVaicajums) or die("Nekorekts vaicājums!");
  
-if (mysqli_num_rows( $atlasaMaksajumus) > 0) {
-    while($row = mysqli_fetch_assoc( $atlasaMaksajumus)) {
-        echo "<tr><td>" .$row["Maksajumi_id"]. "
-        </td><td>" .$row["Sutijuma_datums"] . " 
-        </td><td>" .$row["Gala_cena"]. "
-        </td><td>" .$row["id_sutijumi"]."
-        </td><td>
-        <form action='maksajumidzest.php' method='POST'>
-        <button type='submit' value='$row[Maksajumi_id] ' name='dzestmaksajumi' class='btn'>Dzēst</button>
+if (mysqli_num_rows( $atlasaProduktus) > 0) {
+    while($row = mysqli_fetch_assoc( $atlasaProduktus)) {
+        echo "<tr><td>" .$row["Produktu_id"]. "
+        </td><td>" .$row["Nosaukums"] . " 
+        </td><td>" .$row["Apraksts"]. "
+        </td><td>" .$row["Preces_cena"]."
+        </td><td>" .$row["skaits"]."
+        </td><td><a href='produktirediget.php?Produktu_id=".$row['Produktu_id']." 'name='redigetprodukti''><span class='lietotajs'><i class='fas fa-edit'></i></a>
+        <form action='produktidzest.php' method='POST'>
+        <button type='submit' value='$row[Produktu_id] ' name='dzestprodukti' class='btn'>Dzēst</button>
         </form>";
     }
 }

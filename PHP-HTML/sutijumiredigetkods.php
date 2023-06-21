@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klienti</title>
+    <title>Sutijumu </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../CSS/style_main.css">
     <link rel="shortcut icon" href="atteli/mail.png" type="image/x-icon">
@@ -39,40 +39,40 @@
 </header>
 <?php
                     require("connect_db.php");
-                    if(isset($_POST['klientirediget'])){
-                        $id_klienti = $_POST['Klients_id'];
-                        $vards_ievade = $_POST["Vards"];
-                        $uzvards_ievade = $_POST["Uzvards"];
-                        $talrunis_ievade = $_POST["numurs"];
-                        $Adrese_ievade = $_POST["Adrese"];
+                    if(isset($_POST['sutijumirediget'])){
+                        $Sutijumi_id = $_POST['Sutijumi_id'];
+                        $datums_ievade = $_POST["Datums"];
+                        $cena_ievade = $_POST["Cena"];
+                        $KlientaID_ievade = $_POST["id_klients"];
+                        $SutijumaInfoID_ievade = $_POST["info_id"];
 
-                            $parbaude = "SELECT * FROM klienti WHERE Klients_id='$id_klienti'";
+                            $parbaude = "SELECT * FROM sutijumi WHERE Sutijumi_id='$Sutijumi_id'";
                             $parbaudes_rezultats = mysqli_query($savienojums, $parbaude) or die ("Nekorekts vaicājums!");
 
-                            if(!empty($vards_ievade) && !empty($uzvards_ievade) && !empty($talrunis_ievade) && !empty($Adrese_ievade)){
-                            $rediget_klienti_SQL = 
-                            "UPDATE klienti SET 
-                            `Klients_id` = '$id_klienti',
-                            `Vards` = '$vards_ievade', 
-                            `Uzvards` = '$uzvards_ievade', 
-                            `numurs` = '$talrunis_ievade', 
-                            `Adrese` = '$Adrese_ievade'
-                            WHERE `Klients_id` = '$id_klienti'";
+                            if(!empty($datums_ievade) && !empty($cena_ievade) && !empty($KlientaID_ievade) && !empty($SutijumaInfoID_ievade)){
+                            $rediget_sutijumu_SQL = 
+                            "UPDATE sutijumi SET 
+                            `Sutijumi_id` = '$Sutijumi_id',
+                            `Datums` = '$datums_ievade', 
+                            `Cena` = '$cena_ievade', 
+                            `id_klients` = '$KlientaID_ievade', 
+                            `info_id` = '$SutijumaInfoID_ievade'
+                            WHERE `Sutijumi_id` = '$Sutijumi_id'";
 
-                            if(mysqli_query($savienojums, $rediget_klienti_SQL)){
+                            if(mysqli_query($savienojums, $rediget_sutijumu_SQL)){
                             echo "<div class='pazinojums zals'>Pievienošana ir noritējusi veiksmīgi!</div>";
-                            header("Refresh:2; url=klienti.php");
+                            header("Refresh:2; url=sutijumi.php");
                         }else{
                             echo "<div class='pazinojums sarkans'>Pievienošana nav izdevusies! Kļūda sistēmā!</div>";
-                            header("Refresh:2; url=klienti.php");
+                            header("Refresh:2; url=sutijumi.php");
                         }
 
                     }else{
                         echo "<div class='pazinojums sarkans'>Reģistrācija nav izdevusies! Ievades lauku problēmas!</div>";
-                        header("Refresh:2; url=klienti.php");
+                        header("Refresh:2; url=sutijumi.php");
                     }
                 }else{
                     echo "<div class='pazinojums sarkans'>Kaut kas nogāja greizi! Atgriezies sākumlapā un mēģini vēlreiz!</div>";
-                    header("Refresh:2; url=klienti.php");
+                    header("Refresh:2; url=sutijumi.php");
                 }
                 ?>

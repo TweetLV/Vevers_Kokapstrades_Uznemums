@@ -13,11 +13,11 @@
 <header>
 <nav class="navbar">
         <a href="lietotaji.php" class=><i class="fas fa-user"></i> Lietotāji</a>
-        <a href="produtki.php" ><i class="fas fa-envelope"></i> Produkti</a>
+        <a href="produkti.php" ><i class="fas fa-envelope"></i> Produkti</a>
         <a href="klienti.php" ><i class="fas fa-user"></i> Klienti</a>
         <a href="maksajumi.php"><i class="fas fa-car"></i> Maksājumi</a>
         <a href="sutijumi.php" ><i class="fas fa-user"></i> Sūtijumi</a>
-        <a href="sutijumi_info.php"><i class="fas fa-car"></i> Sūtijumu info</a>
+        <a href="info.php"><i class="fas fa-car"></i> Sūtijumu info</a>
     </nav>
     <nav class="navbar">
         <?php

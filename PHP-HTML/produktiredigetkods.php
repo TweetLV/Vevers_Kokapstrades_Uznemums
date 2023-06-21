@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klienti</title>
+    <title>Produkti</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../CSS/style_main.css">
     <link rel="shortcut icon" href="atteli/mail.png" type="image/x-icon">
@@ -23,7 +23,7 @@
         <?php
             session_start();
             if(isset($_SESSION['username'])){
-                echo "<a href='login.php'><span class='lietotajs'><i class='fas fa-user-tie'></i> ".$_SESSION['username']."</span></a>";
+                echo "<a href='logout.php'><span class='lietotajs'><i class='fas fa-user-tie'></i> ".$_SESSION['username']."</span></a>";
             }else{
                 echo 'kļūda!';
             }
@@ -33,46 +33,47 @@
     if(isset($_SESSION['username'])){
     }else{
         echo "Nav pieejas!";
-        header("location:logout.php");
+        header("location:login.php");
     }
     ?>
 </header>
+
 <?php
                     require("connect_db.php");
-                    if(isset($_POST['klientirediget'])){
-                        $id_klienti = $_POST['Klients_id'];
-                        $vards_ievade = $_POST["Vards"];
-                        $uzvards_ievade = $_POST["Uzvards"];
-                        $talrunis_ievade = $_POST["numurs"];
-                        $Adrese_ievade = $_POST["Adrese"];
+                    if(isset($_POST['produktirediget'])){
+                        $id_produktu = $_POST['Produktu_id'];
+                        $Nosaukums_ievade = $_POST["Nosaukums"];
+                        $Apraksts_ievade = $_POST["Apraksts"];
+                        $PrecesCena_ievade = $_POST["Preces_cena"];
+                        $skaits_ievade = $_POST["skaits"];
 
-                            $parbaude = "SELECT * FROM klienti WHERE Klients_id='$id_klienti'";
+                            $parbaude = "SELECT * FROM produkti WHERE Produktu_id='$id_produktu'";
                             $parbaudes_rezultats = mysqli_query($savienojums, $parbaude) or die ("Nekorekts vaicājums!");
 
-                            if(!empty($vards_ievade) && !empty($uzvards_ievade) && !empty($talrunis_ievade) && !empty($Adrese_ievade)){
-                            $rediget_klienti_SQL = 
-                            "UPDATE klienti SET 
-                            `Klients_id` = '$id_klienti',
-                            `Vards` = '$vards_ievade', 
-                            `Uzvards` = '$uzvards_ievade', 
-                            `numurs` = '$talrunis_ievade', 
-                            `Adrese` = '$Adrese_ievade'
-                            WHERE `Klients_id` = '$id_klienti'";
+                            if(!empty($Nosaukums_ievade) && !empty($Apraksts_ievade) && !empty($PrecesCena_ievade) && !empty($skaits_ievade)){
+                            $rediget_produkti_SQL = 
+                            "UPDATE produkti SET 
+                            `Produktu_id` = '$id_produktu',
+                            `Nosaukums` = '$Nosaukums_ievade', 
+                            `Apraksts` = '$Apraksts_ievade', 
+                            `Preces_cena` = '$PrecesCena_ievade', 
+                            `skaits` = '$skaits_ievade'
+                            WHERE `Produktu_id` = '$id_produktu'";
 
-                            if(mysqli_query($savienojums, $rediget_klienti_SQL)){
+                            if(mysqli_query($savienojums, $rediget_produkti_SQL)){
                             echo "<div class='pazinojums zals'>Pievienošana ir noritējusi veiksmīgi!</div>";
-                            header("Refresh:2; url=klienti.php");
+                            header("Refresh:2; url=produkti.php");
                         }else{
                             echo "<div class='pazinojums sarkans'>Pievienošana nav izdevusies! Kļūda sistēmā!</div>";
-                            header("Refresh:2; url=klienti.php");
+                            header("Refresh:2; url=produkti.php");
                         }
 
                     }else{
                         echo "<div class='pazinojums sarkans'>Reģistrācija nav izdevusies! Ievades lauku problēmas!</div>";
-                        header("Refresh:2; url=klienti.php");
+                        header("Refresh:2; url=produkti.php");
                     }
                 }else{
                     echo "<div class='pazinojums sarkans'>Kaut kas nogāja greizi! Atgriezies sākumlapā un mēģini vēlreiz!</div>";
-                    header("Refresh:2; url=klienti.php");
+                    header("Refresh:2; url=produkti.php");
                 }
                 ?>

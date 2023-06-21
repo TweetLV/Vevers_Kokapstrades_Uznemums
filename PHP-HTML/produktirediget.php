@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maksājumu tabula</title>
+    <title>Produkti</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../CSS/style_main.css">
     <link rel="shortcut icon" href="atteli/mail.png" type="image/x-icon">
@@ -22,7 +22,7 @@
     <nav class="navbar">
         <?php
             session_start();
-            if((isset($_SESSION['username']))){
+            if(isset($_SESSION['username'])){
                 echo "<a href='logout.php'><span class='lietotajs'><i class='fas fa-user-tie'></i> ".$_SESSION['username']."</span></a>";
             }else{
                 echo 'kļūda!';
@@ -37,34 +37,24 @@
     }
     ?>
 </header>
-<section id="adminSakums">
-    <div class="kopsavilkums">
-    <div class="row">
-        <div class="info">
-        <?php require("connect_db.php")?>
-            <div class="head-info">Maksājumu saraksts: <table><?php
-                echo "<tr><th>Maksajumu ID</th><th>Sutijuma datums</th><th>Gala cena</th><th>Sutijumu ID</th></tr>";
-            $maksajumiVaicajums = "SELECT * FROM maksajumi";
-            $atlasaMaksajumus = mysqli_query($savienojums, $maksajumiVaicajums) or die("Nekorekts vaicājums!");
- 
-if (mysqli_num_rows( $atlasaMaksajumus) > 0) {
-    while($row = mysqli_fetch_assoc( $atlasaMaksajumus)) {
-        echo "<tr><td>" .$row["Maksajumi_id"]. "
-        </td><td>" .$row["Sutijuma_datums"] . " 
-        </td><td>" .$row["Gala_cena"]. "
-        </td><td>" .$row["id_sutijumi"]."
-        </td><td>
-        <form action='maksajumidzest.php' method='POST'>
-        <button type='submit' value='$row[Maksajumi_id] ' name='dzestmaksajumi' class='btn'>Dzēst</button>
-        </form>";
-    }
-}
-?>
-</table>
-            </div>
-        </div>
-</section>
 
-<?php include "footer.php"?>
-</body>
-</html>
+<section class="adminSakums">
+        <div class="row">
+            <div class="info">
+                <div class="head-info2">Rediģēt lietotaju</div>
+                            <div class="row">
+                                <form method='post' action='produktiredigetkods.php'>
+                                    <input type="text" placeholder="Produktu ID *" name="Produktu_id" class="box1"  required>
+                                    <input type="text" placeholder="Nosaukums *" name="Nosaukums" class="box1"  required>
+                                    <input type="text" placeholder="Apraksts *" name="Apraksts" class="box1" required>
+                                    <input type="text" placeholder="Cena *" name="Preces_cena" class="box1" required>
+                                    <input type="text" placeholder="Skaits *" name="skaits" class="box1" required>
+                                    <input type="submit" name="produktirediget" value="Saglabāt!" class="btn">
+                                </form>
+                            </div>
+                        </div>
+    </section>
+    
+    <?php include ("footer.php");
+    
+    ?>

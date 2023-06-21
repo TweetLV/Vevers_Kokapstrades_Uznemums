@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maksājumu tabula</title>
+    <title>Sūtijumu tabula</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../CSS/style_main.css">
     <link rel="shortcut icon" href="atteli/mail.png" type="image/x-icon">
@@ -23,7 +23,7 @@
         <?php
             session_start();
             if((isset($_SESSION['username']))){
-                echo "<a href='logout.php'><span class='lietotajs'><i class='fas fa-user-tie'></i> ".$_SESSION['username']."</span></a>";
+                echo "<a href='login.php'><span class='lietotajs'><i class='fas fa-user-tie'></i> ".$_SESSION['username']."</span></a>";
             }else{
                 echo 'kļūda!';
             }
@@ -42,21 +42,19 @@
     <div class="row">
         <div class="info">
         <?php require("connect_db.php")?>
-            <div class="head-info">Maksājumu saraksts: <table><?php
-                echo "<tr><th>Maksajumu ID</th><th>Sutijuma datums</th><th>Gala cena</th><th>Sutijumu ID</th></tr>";
-            $maksajumiVaicajums = "SELECT * FROM maksajumi";
-            $atlasaMaksajumus = mysqli_query($savienojums, $maksajumiVaicajums) or die("Nekorekts vaicājums!");
- 
-if (mysqli_num_rows( $atlasaMaksajumus) > 0) {
-    while($row = mysqli_fetch_assoc( $atlasaMaksajumus)) {
-        echo "<tr><td>" .$row["Maksajumi_id"]. "
-        </td><td>" .$row["Sutijuma_datums"] . " 
-        </td><td>" .$row["Gala_cena"]. "
-        </td><td>" .$row["id_sutijumi"]."
-        </td><td>
-        <form action='maksajumidzest.php' method='POST'>
-        <button type='submit' value='$row[Maksajumi_id] ' name='dzestmaksajumi' class='btn'>Dzēst</button>
-        </form>";
+            <div class="head-info">Sūtijumu saraksts:</div><table><?php
+                echo "<tr><th>Sutijuma ID</th><th>Datums</th><th>Cena</th><th>Klienta ID</th><th>Info id</th></tr>";
+            $sutijumiVaicajums = "SELECT * FROM sutijumi";
+            $atlasaSutijumus = mysqli_query($savienojums, $sutijumiVaicajums) or die("Nekorekts vaicājums!");
+
+if (mysqli_num_rows($atlasaSutijumus) > 0) {
+    while($row = mysqli_fetch_assoc($atlasaSutijumus)) {
+        echo "<tr><td>" .$row["Sutijumi_id"]. "
+        <td>" .$row["Datums"]. "
+        </td><td>" .$row["Cena"] . " 
+        </td><td>" .$row["id_klients"]. "
+        </td><td>" .$row["info_id"]."
+        </td><td><a href='sutijumirediget.php?Sutijumi_id=".$row['Sutijumi_id']." 'name='redigetsutijumi''><span class='lietotajs'><i class='fas fa-edit'></i></a>";
     }
 }
 ?>
